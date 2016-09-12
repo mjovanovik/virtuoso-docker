@@ -1,7 +1,7 @@
 # Dockerizing Virtuoso
 
 To simplify deployment, Virtuoso Open Source Edition (VOS) can be run in a [Docker](https://www.docker.com) container. 
-The following notes describe running VOS standalone under Docker. When deployed as part of the FP3 Platform, VOS is started by the Platform via Docker Compose - see [p3-platform-reference-implementation](https://github.com/fusepoolP3/p3-platform-reference-implementation) for details.
+The following notes describe running VOS standalone under Docker. 
 
 ## Obtaining VOS from Docker Hub
 
@@ -53,9 +53,3 @@ If the db directory contains only a virtuoso.ini file, a new database will be cr
 ### Using an existing database
 
 If the db directory in the host file system contains an existing Virtuoso database, that database will be used by the container. Again, all subsequent changes to the database will be persisted to the host file system.
-
-### Installing the Cartridges VAD
-
-The Virtuoso Sponger and its associated transformers are distributed as a VAD (Virtuoso Application Distribution). When a new database instance is created, VOS will automatically install the Virtuoso Conductor UI. However it will not automatically install a Cartridges VAD.
-
-A variant of the standard Cartridges VAD, containing Fusepool P3 specific transformers and dataset specific XSLT stylesheets for sample FP3 datasets is available for [download](http://opldownload.s3.amazonaws.com/uda/vad-packages/fusepool-p3/cartridges_dav.vad). This VAD is downloaded as part of the VOS base image build and included in the image at /opt/virtuoso-opensource/share/virtuoso/vad. After initializing a VOS instance, the FP3-specific cartridges VAD can be installed by logging into the Virtuoso Conductor (`http://{container_host}:8890/conductor`) and navigating to the 'System Admin' > 'Packages' tab and clicking on the 'Install' link. Once installed, enable the appropriate transformers through the 'Linked Data' > 'Sponger' > 'Extractor Cartridges' panel.
