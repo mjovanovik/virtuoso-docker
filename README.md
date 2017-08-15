@@ -7,7 +7,7 @@ The following notes describe running VOS standalone under Docker.
 
 A [prebuilt VOS image](https://hub.docker.com/r/openlink/virtuoso_opensource/) can be pulled from Docker Hub:
 
-    docker pull openlink/virtuoso_opensource:vos
+    docker pull openlink/virtuoso_opensource:latest
 
 ## Building a VOS Base Image
 
